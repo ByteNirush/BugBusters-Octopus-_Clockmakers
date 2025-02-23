@@ -1,0 +1,105 @@
+/* Base Styles */
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #80cbc4, #004d40); /* Gradient background */
+    color: #ffffff; /* White text for contrast */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #0a5449; /* Turquoise shade */
+}
+
+h2{
+    text-align: center;
+    color: #1a7a6b; 
+}
+
+p{
+    text-align: center;
+    color: #1a7a6b; 
+}
+
+/* Exercise container */
+.exercise-container {
+    display: grid;
+    gap: 20px;
+}
+
+
+/* Individual Exercise Style */
+.exercise {
+    background: #b2dfdb; /* Light turquoise background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.exercise:hover {
+    transform: scale(1.05); /* Slight hover effect */
+    background-color: #80cbc4; /* Darker turquoise when hovered */
+}
+
+/* Input Field Style */
+.timer-input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #004d40; /* Dark teal */
+}
+
+/* Button Style */
+button {
+    background-color: #00796b; /* Turquoise color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+/* Progress bar */
+.progress-bar {
+    background: #004d40; /* Dark teal for the background */
+    border-radius: 8px;
+    height: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.progress {
+    background: #00796b; /* Turquoise color */
+    height: 100%;
+    width: 0;
+    border-radius: 8px;
+    transition: width 1s ease-in-out;
+}
+
+/* Animation for progress bar */
+@keyframes progressAnimation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}

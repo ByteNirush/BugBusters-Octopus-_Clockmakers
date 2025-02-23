@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Development  🌟</title>
+    <link rel="stylesheet" href="mood_tracker.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Development 😊📊</h1>
+            <h1 class="date" id="currentDate">📅</h1>
+        </header>
+        
+        <div class="mood-sliders">
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label> 😊 Happiness</label>
+                    <span class="percentage">50% 🎉</span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" min="0" max="100" value="50" class="mood-slider" data-type="happiness">
+                    <div class="slider-progress"></div>
+                </div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label> ⚡ Energy</label>
+                    <span class="percentage">50% ⚡</span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" min="0" max="100" value="50" class="mood-slider" data-type="energy">
+                    <div class="slider-progress"></div>
+                </div>
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label> 🎨 Creativity</label>
+                    <span class="percentage">50% ✨</span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" min="0" max="100" value="50" class="mood-slider" data-type="creativity">
+                    <div class="slider-progress"></div>
+                </div>
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label> 🎯 Focus</label>
+                    <span class="percentage">50% 🔍</span>
+                </div>
+                <div class="slider-wrapper">
+                    <input type="range" min="0" max="100" value="50" class="mood-slider" data-type="focus">
+                    <div class="slider-progress"></div>
+                </div>
+            </div>
+            
+            <button id="saveBtn" class="save-button">💾 Save </button>
+        </div>
+        
+        <div class="stats-container">
+            <div class="chart-container">
+                <h2>📈 Weekly performance</h2>
+                <canvas id="moodChart"></canvas>
+            </div>
+            
+            <div class="mood-stats">
+                <h2>📅 Today's performance</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label"> 😊 Happiness</span>
+                        <span class="stat-value" id="happinessValue">50% 🎉</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label"> ⚡ Energy</span>
+                        <span class="stat-value" id="energyValue">50% ⚡</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label"> 🎨 Creativity</span>
+                        <span class="stat-value" id="creativityValue">50% ✨</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label"> 🎯 Focus</span>
+                        <span class="stat-value" id="focusValue">50% 🔍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="mood_tracker.js"></script>
+</body>
+</html>

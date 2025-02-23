@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="src/logo.png">
+</head>
+<body>
+    <img src="src/logo.png" alt="Logo" class="logo">
+
+    <div class="slogan">
+        <h2>Your daily dose of growth !</h2>
+    </div>
+    
+
+    <div class="login-container">
+        <div class="login-button">
+            <button type="button" class="btn btn-danger" onclick="openNewPage()">Login</button>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="imageButton" data-url="Vision Board/vision.html">
+            <img src="src/my_habits.jpg" alt="Vision Board">
+            <br><span> Vision Board </span>
+        </button>
+
+        <button class="imageButton" data-url="Mood Tracker/mood_tracker.html">
+            <img src="src/mood t.jpg" alt="Mood Tracker">
+            <br><span> Personal Development </span>
+        </button>
+
+        <button class="imageButton" data-url="My Habits/my_habits.html">
+            <img src="src/my habits.jpg" alt="My Habits">
+            <br><span> My Journal </span>
+        </button>
+
+        <button class="imageButton" data-url="Perk Up/perk_up.html">
+            <img src="src/Perk Up.jpg" alt="Perk Up">
+            <br><span> Perk Up </span>
+        </button>
+    </div>
+
+
+
+    <p class="pdf"><a href="src/User Manual for Zen Zone.pdf"> Written guide to Zen Zone </a></p>
+
+    <p class="video"><a href="https://youtu.be/6Ps275YIJeE"> Visual guide to Zen Zone</a></p>
+
+
+    <p class="copyright">&copy; 2025 BUG BUSTERS. All rights reserved.</p>
+
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            let uid = localStorage.getItem("uid");
+            const loginButton = document.querySelector(".login-button button");
+            const buttons = document.querySelectorAll(".imageButton");
+
+            // Function to handle login/logout button
+            function updateUI() {
+                if (uid) {
+                    loginButton.textContent = "Logout";
+                    loginButton.onclick = () => {
+                        localStorage.removeItem("uid");
+                        window.location.reload();
+                    };
+                } else {
+                    loginButton.textContent = "Login";
+                    loginButton.onclick = () => {
+                        window.location.href = "login/index.html";
+                    };
+                }
+            }
+
+            // Prevent access to buttons if user is not logged in
+            buttons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    let uid = localStorage.getItem("uid"); // Re-check login status
+                    if (!uid) {
+                        event.preventDefault(); // Stop navigation
+                        alert("Login first!"); // Show alert message
+                    } else {
+                        window.location.href = button.getAttribute("data-url");
+                    }
+                });
+            });
+
+            // Run function when page loads
+            updateUI();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="music.css">
+    <title>Mood-Based Music Player</title>
+</head>
+<body>
+
+    <h1>Mood Based Music</h1>
+    <div class="meditation-container">
+        <section class="meditation-timer">
+            <h2>Timer</h2>
+            <div class="timer-display">
+                <div id="timer">20:00</div>
+                <div class="timer-controls">
+                    <button id="decrease-time" aria-label="Decrease time by 5 minutes">-5 Min</button>
+                    <button id="start-timer" class="primary-button" aria-label="Start timer">Start</button>
+                    <button id="stop-timer" class="primary-button" aria-label="Stop timer">Stop</button>
+                    <button id="increase-time" aria-label="Increase time by 5 minutes">+5 Min</button>
+                </div>
+            </div>
+            <div class="ambient-sounds">
+                <h3>Ambient Sounds</h3>
+                <div class="sound-buttons">
+                    <button class="sound-btn" data-sound="Peaceful">☮️ Peaceful</button>
+                    <button class="sound-btn" data-sound="Dreamy_Music_Dreamy">🌊 Dreamy Music Dreamy</button>
+                    <button class="sound-btn" data-sound="Beautiful_Music_Peaceful">🌳 Beautiful Music Peaceful</button>
+                    <button class="sound-btn" data-sound="Energizing_Groovy">⚪ Energizing Groovy</button>
+                    <button class="sound-btn" data-sound="Energizing_Pumped">🌧️ Energizing Pumped</button>
+                    <button class="sound-btn" data-sound="Energizing_Upbeat">🌊 Energizing Upbeat</button>
+                    <button class="sound-btn" data-sound="Energizing_Uplifting">🌳 Energizing Uplifting</button>
+                    <button class="sound-btn" data-sound="Heroic">♯ Heroic</button>
+                    <button class="sound-btn" data-sound="Sad">🌳 Sad</button>
+                    <button class="sound-btn" data-sound="Heroic_1">♯ Heroic Filmic</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="music.js"></script>
+</body>
+</html>

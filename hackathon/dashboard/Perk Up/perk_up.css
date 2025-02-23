@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #89d9cc;
+    margin: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 30px;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button img {
+    width: 270px;
+    height: 270px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+button:hover img {
+    transform: scale(1.1); /* Enlarge image on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+button span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    font-family: 'Georgia', serif;
+}
+
+button:hover span {
+    background-color: #f5c5c5; /* Change span color on hover */
+    transform: translateY(-5px); /* Slightly move the text up */
+}
+
+button:active {
+    transform: scale(0.98); /* Give a button press effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Reduce shadow when clicked */
+}
+
+.login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    border-radius: 10px;
+}
+
+.btn-danger {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #b2f7ef; /* Add a solid border with the same color as the button */
+    background-color: #b2f7ef; /* Bootstrap's danger color */
+    color: rgb(18, 47, 52); /* Text color */
+    border-radius: 10px; /* Match the border radius with the button */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker shade on hover */
+    border-color: #a71c24; /* Darker border color on hover */
+}
+
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px; /* Reduced size */
+    height: auto;
+    border-radius: 3px;
+    padding: 5px;   
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.copyright{
+    position: absolute;
+    bottom: 10px;
+    right: 600px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+    text-align: center;
+}

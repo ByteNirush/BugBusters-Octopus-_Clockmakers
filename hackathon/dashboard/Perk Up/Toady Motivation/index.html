@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Motivation</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #00bcd4, #009688); /* Turquoise gradient */
+            color: white;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Title styles */
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Container with quote styles */
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            width: 60%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Animating container on hover */
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        /* Paragraph and title in container styles */
+        p {
+            font-size: 16px;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-out;
+        }
+
+        h1 {
+            font-size: 24px;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Today's Motivation</div>
+    <div class="container" onclick="changeQuote()">
+        <h1 id="quote">Loading...</h1>
+        <p>Tap to change</p>
+    </div>
+    
+    <script>
+        const quotes = [
+            "Believe in yourself and all that you are.",
+            "The only way to do great work is to love what you do.",
+            "Act as if what you do makes a difference. It does.",
+            "Do what you can, with what you have, where you are.",
+            "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+            "With the new day comes new strength and new thoughts.",
+            "You are never too old to set another goal or to dream a new dream.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "The best way to predict the future is to create it.",
+            "Don't watch the clock; do what it does. Keep going.",
+            "The only limit to our realization of tomorrow will be our doubts of today.",
+            "The best preparation for tomorrow is doing your best today.",
+            "Success is not the key to happiness. Happiness is the key to success.",
+            "Believe you can and you're halfway there.",
+            "It does not matter how slowly you go, as long as you do not stop.",
+            "Success is not in what you have, but who you are.",
+            "Hardships often prepare ordinary people for an extraordinary destiny.",
+        ];
+
+        function getDailyQuote() {
+            const today = new Date();
+            const index = (today.getFullYear() + today.getMonth() + today.getDate()) % quotes.length;
+            return quotes[index];
+        }
+
+        function changeQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = quotes[randomIndex];
+        }
+
+        document.getElementById("quote").innerText = getDailyQuote();
+    </script>
+</body>
+</html>

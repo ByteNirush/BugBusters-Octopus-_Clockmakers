@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #6fbdb1;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2d3748;
+}
+
+h2, h3 {
+    color: #2d3748;
+}
+
+/* Meditation Styles */
+.meditation-container {
+    margin: 2rem auto; /* Center the container */
+    max-width: 800px; /* Optional: Set a max width for better centering */
+    text-align: center; /* Center text inside */
+}
+
+.meditation-timer {
+    background: #d7f5ef;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.meditation-timer:hover {
+    transform: scale(1.02);
+}
+
+.timer-display {
+    margin: 2rem 0;
+}
+
+#timer {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Button styles */
+.primary-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #4a9d92;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.25rem; /* Increase font size for better visibility */
+}
+
+.primary-button:hover {
+    background-color: #3182ce;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Stop button specific styles */
+#stop-timer {
+    background-color: #e53e3e; /* Red color for the stop button */
+}
+
+#stop-timer:hover {
+    background-color: #c53030; /* Darker red on hover */
+}
+
+.ambient-sounds {
+    margin-top: 2rem;
+}
+
+.sound-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.sound-btn {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sound-btn.active {
+    background: #4a9d92;
+    color: white;
+    border-color: #4a9d92;
+}
+
+.sound-btn:hover {
+    background: #edf2f7;
+}

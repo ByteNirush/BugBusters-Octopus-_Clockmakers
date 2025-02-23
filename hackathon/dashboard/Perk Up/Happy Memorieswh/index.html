@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Memory Upload</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #5fb3a6; /* Turquoise background */
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #1a7a6b; /* Dark turquoise */
+        }
+        .avatar {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        .file-input {
+            margin-bottom: 15px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .gallery-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeUp 0.5s ease-out forwards;
+        }
+        .gallery-item img, .gallery-item video {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #00796b; /* Turquoise border */
+        }
+        .delete-btn {
+            margin-top: 5px;
+            background-color: #d32f2f; /* Red button */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .delete-btn:hover {
+            background-color: #c62828; /* Darker red on hover */
+        }
+        .button {
+            background-color: #00796b; /* Turquoise button */
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #004d40; /* Darker turquoise on hover */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="User Avatar" class="avatar">
+        <h2>Upload Your Happy Memory</h2>
+        <input type="file" id="fileInput" class="file-input" accept="image/*,video/*" multiple>
+        
+        <button class="button" onclick="viewHappyMoments()">View Happy Moments</button>
+
+        <div class="gallery" id="gallery"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const gallery = document.getElementById("gallery");
+
+        // Load saved memories from localStorage
+        function loadHappyMoments() {
+            const savedMemories = JSON.parse(localStorage.getItem("memories") || "[]");
+            gallery.innerHTML = ""; // Clear before displaying
+            savedMemories.forEach((memory, index) => displayMemory(memory, index));
+        }
+
+        // Display memory in the gallery with delete button
+        function displayMemory(memory, index) {
+            const item = document.createElement("div");
+            item.classList.add("gallery-item");
+
+            if (memory.fileType === "image") {
+                const img = document.createElement("img");
+                img.src = memory.fileData;
+                item.appendChild(img);
+            } else if (memory.fileType === "video") {
+                const video = document.createElement("video");
+                video.src = memory.fileData;
+                video.controls = true;
+                item.appendChild(video);
+            }
+
+            // Delete Button
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.onclick = () => deleteMemory(index);
+            item.appendChild(deleteBtn);
+
+            gallery.appendChild(item);
+        }
+
+        // Delete memory from localStorage and gallery
+        function deleteMemory(index) {
+            let savedMemories = JSON.parse(localStorage.getItem("memories") || "[]");
+            savedMemories.splice(index, 1); // Remove selected item
+            localStorage.setItem("memories", JSON.stringify(savedMemories));
+            loadHappyMoments(); // Refresh gallery
+        }
+
+        // Handle file upload
+        fileInput.addEventListener("change", function(event) {
+            const files = event.target.files;
+            let savedMemories = JSON.parse(localStorage.getItem("memories") || "[]");
+
+            for (let file of files) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const fileType = file.type.startsWith("image") ? "image" : "video";
+                    
+                    // Save to localStorage
+                    const memory = { fileData: e.target.result, fileType };
+                    savedMemories.push(memory);
+                    localStorage.setItem("memories", JSON.stringify(savedMemories));
+
+                    // Display immediately
+                    displayMemory(memory, savedMemories.length - 1);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // View happy moments button
+        function viewHappyMoments() {
+            loadHappyMoments();
+        }
+
+        // Load on page start
+        window.onload = loadHappyMoments;
+    </script>
+
+</body>
+</html>

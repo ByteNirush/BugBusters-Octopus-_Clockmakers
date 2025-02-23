@@ -1,0 +1,198 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #5fb3a6;
+}
+
+.button-group {
+    display: flex;
+    gap: 30px;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    background-color: #eff5f4;
+}
+
+button img {
+    width: 270px;
+    height: 270px;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+button span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    font-family: 'Georgia', serif;
+}
+
+.login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    border-radius: 10px;
+}
+
+.btn-danger {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #78fcee;
+    background-color: #78fcee;
+    color: rgb(18, 47, 52);
+    border-radius: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #f5c5c5;
+    border-color: #e6b3b3;
+}
+
+/* Animations */
+@keyframes bounce {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.1); }
+    60% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes softGlow {
+    0% { box-shadow: 0 0 8px rgba(0, 150, 255, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(0, 150, 255, 0.8); }
+    100% { box-shadow: 0 0 8px rgba(0, 150, 255, 0.5); }
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Image Button Hover */
+button.image-button:hover {
+    animation: scaleUp 0.3s ease-in-out;
+    border-color: #f5c5c5;
+    cursor: pointer;
+}
+
+button.image-button:hover img {
+    animation: bounce 0.5s ease-in-out, softGlow 1s ease-in-out infinite;
+}
+
+button.image-button:hover span {
+    background-color: #f5c5c5;
+    font-size: 16px;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+/* Button Click Effect */
+button.image-button:active {
+    transform: translateY(2px);
+}
+
+/* Login Button */
+.login-button button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #b2f7ef;
+    background-color: #b2f7ef;
+    color: rgb(18, 47, 52);
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button button:hover {
+    background-color: #c47c87;
+    transform: scale(1.1);
+    cursor: pointer;
+    animation: softGlow 1s ease-in-out infinite;
+}
+
+.login-button button:active {
+    transform: translateY(2px);
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: auto;
+    border-radius: 3px;
+    padding: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Slogan */
+.slogan {
+    position: absolute;
+    text-align: center;
+    color: #146569;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+    margin-top: 3px;
+    top: 5px;
+    left: 400px; 
+}
+
+h2 {
+    font-size: 55px;
+}
+
+
+
+.pdf{
+    position: absolute;
+    bottom: 70px;
+    right: 665px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+
+.video{
+    position: absolute;
+    bottom: 40px;
+    right: 665px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+    text-align: center;
+}
+
+
+/* Copyright */
+.copyright {
+    position: absolute;
+    bottom: 10px;
+    right: 600px;
+    font-size: 14px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    transition: color 0.3s ease;
+    text-align: center;
+}

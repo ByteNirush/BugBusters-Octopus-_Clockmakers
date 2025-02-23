@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Journal</title>
+    <link rel="icon" href="src/logo.png">
+    <link rel="stylesheet" href="my_habits.css">
+</head>
+<body>
+    <main>
+        <h1>Wellness Journal</h1>
+        
+        <div class="journal-container">
+            <section class="new-entry">
+                <h2>New Journal Entry</h2>
+                <div class="entry-form">
+                    <div class="date-mood">
+                        <input type="date" id="entry-date" class="date-input">
+                        <div class="mood-select">
+                            <label for="entry-mood">Mood:</label>
+                            <select id="entry-mood">
+                                <option value="great">Great 😊</option>
+                                <option value="good">Good 🙂</option>
+                                <option value="okay">Okay 😐</option>
+                                <option value="down">Down 😕</option>
+                                <option value="bad">Bad 😢</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="prompts-section">
+                        <h3>Reflection Prompts</h3>
+                        <div class="prompt-responses">
+                            <div class="prompt-item">
+                                <label for="what-went-well">How would you describe your mood today, and what moments influenced it?</label>
+                                <textarea id="what-went-well" class="prompt-textarea"></textarea>
+                            </div>
+                            <div class="prompt-item">
+                                <label for="what-challenged-you">What are you grateful for today?</label>
+                                <textarea id="what-challenged-you" class="prompt-textarea"></textarea>
+                            </div>
+                            <div class="prompt-item">
+                                <label for="gratitude">What challenges did you face today, and how did you handle them?</label>
+                                <textarea id="gratitude" class="prompt-textarea"></textarea>
+                            </div>
+                            <div class="prompt-item">
+                                <label for="what-you-learned">What did you learn about yourself today?</label>
+                                <textarea id="what-you-learned" class="prompt-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="tags-section">
+                        <label for="entry-tags">Tags:</label>
+                        <input type="text" id="entry-tags" placeholder="Add tags (comma separated)">
+                    </div>
+                    <button id="save-entry" class="primary-button">Save Journal Entry</button>
+                </div>
+            </section>
+            <section class="past-entries">
+                <h2>Past Entries</h2>
+                <div class="entries-filter">
+                    <input type="text" id="search-entries" placeholder="Search entries...">
+                    <select id="mood-filter">
+                        <option value="">All Moods</option>
+                        <option value="great">Great</option>
+                        <option value="good">Good</option>
+                        <option value="okay">Okay</option>
+                        <option value="down">Down</option>
+                        <option value="bad">Bad</option>
+                    </select>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="my_habits.js"></script>
+</body>
+</html>

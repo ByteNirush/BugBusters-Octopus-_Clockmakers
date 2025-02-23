@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Streaks Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Exercise Tracker</h1>
+        <div class="exercise-container">
+            <div class="exercise" id="pushups">
+                <h2>Push Ups</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="pushups-time">
+                <button onclick="startTimer('pushups')">Start Timer</button>
+                <button onclick="resetLevel('pushups')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="pushups-progress"></div>
+                </div>
+            </div>
+
+            <div class="exercise" id="squats">
+                <h2>Squats</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="squats-time">
+                <button onclick="startTimer('squats')">Start Timer</button>
+                <button onclick="resetLevel('squats')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="squats-progress"></div>
+                </div>
+            </div>
+
+            <div class="exercise" id="situps">
+                <h2>Sit Ups</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="situps-time">
+                <button onclick="startTimer('situps')">Start Timer</button>
+                <button onclick="resetLevel('situps')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="situps-progress"></div>
+                </div>
+            </div>
+
+            <div class="exercise" id="highknees">
+                <h2>High Knees</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="highknees-time">
+                <button onclick="startTimer('highknees')">Start Timer</button>
+                <button onclick="resetLevel('highknees')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="highknees-progress"></div>
+                </div>
+            </div>
+
+            <div class="exercise" id="plank">
+                <h2>Plank</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="plank-time">
+                <button onclick="startTimer('plank')">Start Timer</button>
+                <button onclick="resetLevel('plank')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="plank-progress"></div>
+                </div>
+            </div>
+
+            <div class="exercise" id="pullups">
+                <h2>Pull Ups</h2>
+                <p>Level: <span class="level">0</span></p>
+                <input type="number" placeholder="Time (minutes)" class="timer-input" id="pullups-time">
+                <button onclick="startTimer('pullups')">Start Timer</button>
+                <button onclick="resetLevel('pullups')">Reset</button>
+                <div class="progress-bar">
+                    <div class="progress" id="pullups-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
