@@ -1,5 +1,10 @@
 // Initialize journal entries from localStorage
-let journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+let journalEntries = [];
+try {
+    journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+} catch (error) {
+    console.error('Error parsing journal entries from localStorage:', error);
+}
 
 // Set today's date as default
 document.getElementById('entry-date').valueAsDate = new Date();
@@ -82,7 +87,11 @@ document.getElementById('save-entry').addEventListener('click', () => {
         alert('Journal entry saved successfully!');
     }
 
-    localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+    try {
+        localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+    } catch (error) {
+        console.error('Error saving journal entries to localStorage:', error);
+    }
     clearForm();
     displayEntries();
 });
@@ -98,7 +107,11 @@ function clearForm() {
 function deleteEntry(entryId) {
     console.log("Attempting to delete entry with ID:", entryId); // Debugging log
     journalEntries = journalEntries.filter(entry => entry.id !== entryId);
-    localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+    try {
+        localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+    } catch (error) {
+        console.error('Error saving journal entries to localStorage:', error);
+    }
     document.querySelector(`.entry-card[data-id="${entryId}"]`).remove(); // Remove entry from DOM
 }
 
